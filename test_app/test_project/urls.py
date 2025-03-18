@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+
+from . import viewscar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cars/', viewscar.car_list, name='car_list'),
+
+
 
 ]
