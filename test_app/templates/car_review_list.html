@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Все обзоры</title>
+</head>
+<body>
+    <h1>Все обзоры</h1>
+
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <p><strong>Автор:</strong> {{ review.author.username }}</p>
+                    <p><strong>Машина:</strong> {{ review.car.car_brand }} {{ review.car.car_body }}</p>
+                    <p>{{ review.contents }}</p>
+                    <p>Лайки: {{ review.likes }} | Дизлайки: {{ review.dislikes }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Обзоров пока нет.</p>
+    {% endif %}
+</body>
+</html>

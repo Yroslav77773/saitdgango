@@ -9,6 +9,7 @@ class Car(models.Model):
     tax = models.FloatField(default=0)  # Налог авто
     user = models.CharField(max_length=255)  # Пользователь, который создал
 
+
     def __str__(self):
         return f"{self.car_brand} {self.car_body}"
 
