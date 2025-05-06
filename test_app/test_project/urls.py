@@ -16,20 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from . import views
-from . import viewscar
 
 urlpatterns = [
+    path('delete/<int:car_id>/', views.delete_car, name='delete_car'), # URL для удаления автомобиля
+    path('add/', views.add_car, name='add_car'),  # URL для добавления автомобиля
+    path('reviews/<int:car_id>/', views.car_review_list, name='car_review_list'),
     path('', views.car_list, name='car_list'),  # Главная страница (список автомобилей)
     path('login_choice/', views.login_choice, name='login_choice'),  # Страница выбора
     path('login/', views.login_view, name='login'),  # Страница входа
     path('signup/', views.signup, name='signup'),  # Страница регистрации
     path('logout/', views.logout_view, name='logout'),
     path('profile/', views.profile, name='profile'),
-    path('car_reviews/', views.car_review_list, name='car_reviews'),
-    path('admin/', admin.site.urls),
-
+    path('admin/', admin.site.urls)
 ]
 
 
